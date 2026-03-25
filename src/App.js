@@ -9,8 +9,8 @@ function App() {
 
   // Environment variables
   const API_KEY = process.env.REACT_APP_AIRTABLE_API_KEY;
-  const BASE_ID = process.env.REACT_APP_AIRTABLE_BASE_ID ||;
-  const TABLE_NAME = process.env.REACT_APP_AIRTABLE_TABLE_NAME ||;
+  const BASE_ID = process.env.REACT_APP_AIRTABLE_BASE_ID || 'apptwG23ikzA22qeS';
+  const TABLE_NAME = process.env.REACT_APP_AIRTABLE_TABLE_NAME || 'tbljveyyXwa2YDhsr';
 
   const handleSearch = async () => {
     if (!query.trim()) {
