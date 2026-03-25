@@ -7,7 +7,7 @@ function App() {
   const [result, setResult] = useState(null);
   const [loading, setLoading] = useState(false);
 
-  // Environment variables
+  // Environment variables - these come from Vercel settings
   const API_KEY = process.env.REACT_APP_AIRTABLE_API_KEY;
   const BASE_ID = process.env.REACT_APP_AIRTABLE_BASE_ID || 'apptwG23ikzA22qeS';
   const TABLE_NAME = process.env.REACT_APP_AIRTABLE_TABLE_NAME || 'tbljveyyXwa2YDhsr';
@@ -22,7 +22,7 @@ function App() {
     setResult(null);
 
     if (!API_KEY) {
-      setResult({ error: 'API configuration error. Please contact administrator.' });
+      setResult({ error: 'Configuration error. Please contact administrator.' });
       setLoading(false);
       return;
     }
@@ -43,8 +43,8 @@ function App() {
         setResult({ error: 'No record found for this Batch Number' });
       }
     } catch (error) {
-      console.error('Airtable error:', error.response || error);
-      setResult({ error: 'Error fetching data from Airtable. Please try again later.' });
+      console.error('Airtable error:', error);
+      setResult({ error: 'Error fetching data. Please try again later.' });
     }
 
     setLoading(false);
@@ -55,7 +55,7 @@ function App() {
       <img src="/TRU-LogoOptionsFinal_Horizontal.jpg" alt="TruInfusion Logo" className="logo" />
       <h1>TruInfusion Batch Lookup</h1>
 
-      {/* Warning Banner - Always visible at the top */}
+      {/* Warning Banner - Top of Page */}
       <div className="warning-banner">
         <strong>⚠️ Important Warning:</strong><br />
         Using marijuana during pregnancy could cause birth defects or other health issues to your unborn child.
@@ -76,7 +76,7 @@ function App() {
 
       {result && (
         <div className="result">
-          {/* Warning Banner - Also shown with results */}
+          {/* Warning Banner - Also shown with Results */}
           <div className="warning-banner">
             <strong>⚠️ Important Warning:</strong><br />
             Using marijuana during pregnancy could cause birth defects or other health issues to your unborn child.
@@ -97,7 +97,7 @@ function App() {
                     rel="noopener noreferrer"
                     className="dist-link"
                   >
-                    Distribution Chain>>
+                    Distribution Chain >>
                   </a>
                 </li>
               </ul>
